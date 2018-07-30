@@ -58,18 +58,18 @@ var initDb = function(callback) {
 };
 
 app.get('/ping', function(req, res){
-	res.send('{ping : 1}');
+	res.send('ping : 1');
 });
 app.get('/pay', function(req, res){
 	res.render('pay.html');
 });
 app.post('/pay', function(req, res){
 	var number=req.body.pay;
-	res.send("{msg: 'Thank you. Your payment has been received. You pay: "+number+"$'}");
+	res.send("Thank you. Your payment has been received. You pay: "+number+"$");
 });
 // error handling
 app.get('*', function(req, res) {
-    res.send("{msg:'404 Not Found'}");
+    res.send("404 Not Found");
 });
 
 app.listen(port, ip);
