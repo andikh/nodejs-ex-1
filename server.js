@@ -1,10 +1,11 @@
 //  OpenShift sample Node application
 var express = require('express'),
     app     = express(),
-    morgan  = require('morgan');
-    
+    morgan  = require('morgan'),
+    bodyParser = require('body-parser');
 Object.assign=require('object-assign')
-
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.engine('html', require('ejs').renderFile);
 app.use(morgan('combined'))
 
@@ -83,7 +84,8 @@ app.get('/pay', function(req, res){
 	res.render('pay.html');
 });
 app.post('/pay', function(req, res){
-	res.send("You paid xxx");
+	var number=req.body.pay;
+	res.send("You paid "+number);
 });
 // error handling
 app.use(function(err, req, res, next){
