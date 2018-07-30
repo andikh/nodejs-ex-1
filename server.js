@@ -78,8 +78,10 @@ app.get('/', function (req, res) {
 });
 app.get('/ping', function(req, res){
 	res.send('{ping : 1}');
-})
-
+});
+app.get('/pay', function(req, res){
+	res.render('pay.html');
+});
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
