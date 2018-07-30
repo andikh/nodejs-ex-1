@@ -82,6 +82,9 @@ app.get('/ping', function(req, res){
 app.get('/pay', function(req, res){
 	res.render('pay.html');
 });
+app.post('/pay', function(req, res){
+	res.send("You paid xxx");
+});
 // error handling
 app.use(function(err, req, res, next){
   console.error(err.stack);
